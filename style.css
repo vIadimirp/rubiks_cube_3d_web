@@ -1,0 +1,68 @@
+:root {
+    --cube-size: 300px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+body {
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 600px;
+}
+div#rc-wrapper {
+    transform-style: preserve-3d;
+}
+div#rc {
+    font-size: var(--cube-size);
+    position: relative;
+    transform-style: preserve-3d;
+    width: 1em;
+    height: 1em;
+    animation: rcAnimation 10s linear infinite;
+    /* transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); */
+}
+@keyframes rcAnimation {
+    from {
+        transform: rotateX(-30deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+        transform: rotateX(-30deg) rotateY(360deg) rotateZ(0deg);
+    }
+}
+div.rc__side {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    outline: 1px solid #000;
+    display: grid;
+    grid-template-columns: repeat(var(--n), 1fr);
+    grid-template-rows: repeat(var(--n), 1fr);
+}
+.rc__square {
+    outline: 1px solid #000;
+}
+div#rc__front {
+    transform: rotateY(0deg) translateZ(.5em);
+}
+div#rc__right {
+    transform: rotateY(90deg) translateZ(.5em);
+}
+div#rc__back {
+    transform: rotateY(180deg) translateZ(.5em);
+}
+div#rc__left {
+    transform: rotateY(-90deg) translateZ(.5em);
+}
+div#rc__top {
+    transform: rotateX( 90deg) translateZ(.5em);
+}
+div#rc__bottom {
+    transform: rotateX(-90deg) translateZ(.5em);
+}
