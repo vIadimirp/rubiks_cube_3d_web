@@ -1,1 +1,0 @@
-# rubiks_cube_3d_web
